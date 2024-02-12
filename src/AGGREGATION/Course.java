@@ -2,19 +2,20 @@ package AGGREGATION;
 
 public class Course {
     private String courseName;
-    private Instructor instructor;
-    private Textbook textbook;
+    private Instructor[] instructors;
+
+    private Textbook[] textbooks;
 
     /**
      * Constructs member of Course and aggregation of instructor and textbook classes.
      * @param courseName            The name of the course
-     * @param instructor            The instructor's information
-     * @param textbook              The textbook's information
+     * @param instructors           The instructors' information
+     * @param textbooks             The textbooks' information
      */
-    public Course(String courseName, Instructor instructor, Textbook textbook) {
+    public Course(String courseName, Instructor[] instructors, Textbook[] textbooks) {
         this.courseName = courseName;
-        this.instructor = instructor;
-        this.textbook = textbook;
+        this.instructors = instructors;
+        this.textbooks = textbooks;
     }
 
     public String getCourseName() {
@@ -25,28 +26,31 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public Instructor getInstructor() {
-        return instructor;
+    public Instructor[] getInstructors() {
+        return instructors;
     }
 
-    public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
+    public void setInstructors(Instructor[] instructors) {
+        this.instructors = instructors;
     }
 
-    public Textbook getTextbook() {
-        return textbook;
+    public Textbook[] getTextbooks() {
+        return textbooks;
     }
 
-    public void setTextbook(Textbook textbook) {
-        this.textbook = textbook;
+    public void setTextbooks(Textbook[] textbooks) {
+        this.textbooks = textbooks;
     }
 
     public void printInfo(){
-        System.out.println("Course name: " + this.courseName);
-        System.out.println("Information:");
-        System.out.println("Instructor: " + instructor.getFirstName() + " " + instructor.getLastName());
-        System.out.println("Instructor's Office: " + instructor.getOfficeNumber());
-        System.out.println("Textbook: " + textbook.getTitle() + " by " + textbook.getAuthor());
-        System.out.println("Textbook: " + textbook.getPublisher());
+        System.out.println("Course Name: " + courseName);
+        for (int i = 0; i < instructors.length; i++) {
+            System.out.println("Instructor " + (i + 1) + ": " + instructors[i].getFirstName() + " "
+                    + instructors[i].getLastName() + ", Office Number: " + instructors[i].getOfficeNumber());
+        }
+        for (int i = 0; i < textbooks.length; i++) {
+            System.out.println("Textbook " + (i + 1) + ": " + textbooks[i].getTitle() + ", Author: "
+                    + textbooks[i].getAuthor() + ", Publisher: " + textbooks[i].getPublisher());
+        }
     }
 }

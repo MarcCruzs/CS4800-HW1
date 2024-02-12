@@ -2,11 +2,33 @@ package AGGREGATION;
 
 public class Test {
     public static void main(String[] args){
-        Instructor instructor1 = new Instructor("Nima","Davarpanah","3-2636");
-        Instructor instructor2 = new Instructor("George","Washington","8-5000");
-        Instructor instructor3 = new Instructor("George","Lucas","20-1231");
+        Instructor instructor1 = new Instructor();
+        instructor1.setFirstName("Nima");
+        instructor1.setLastName("Davarpanah");
+        instructor1.setOfficeNumber("3-2636");
 
-        Textbook textbook1 = new Textbook("Clean Code","Robert C. Martin", "Pearson");
+        Instructor instructor2 = new Instructor();
+        instructor2.setFirstName("George");
+        instructor2.setLastName("Washington");
+        instructor2.setOfficeNumber("8-5000");
+
+        Textbook textbook1 = new Textbook();
+        textbook1.setTitle("Clean Code");
+        textbook1.setAuthor("Robert C. Martin");
+        textbook1.setPublisher("Pearson");
+
+        Textbook textbook2 = new Textbook();
+        textbook2.setTitle("Dummy Title");
+        textbook2.setAuthor("Really Old Guy");
+        textbook2.setPublisher("Typerwriter");
+
+        Instructor[] instructorArray = {instructor1, instructor2};
+        Textbook[] textbookArray = {textbook1, textbook2};
+
+        Course course = new Course("Essential Course", instructorArray, textbookArray);
+
+        course.printInfo();
+
 
     }
 }
