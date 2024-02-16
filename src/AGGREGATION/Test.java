@@ -22,12 +22,19 @@ public class Test {
         textbook2.setAuthor("Really Old Guy");
         textbook2.setPublisher("Typerwriter");
 
-        Instructor[] instructorArray = {instructor1, instructor2};
-        Textbook[] textbookArray = {textbook1, textbook2};
+        Instructor[] instructorArrayv1 = {instructor1};
+        Textbook[] textbookArrayv1 = {textbook1};
 
-        Course course = new Course("Essential Course", instructorArray, textbookArray);
+        Instructor[] instructorArrayv2 = {instructor1, instructor2};
+        Textbook[] textbookArrayv2 = {textbook1, textbook2};
 
-        course.printInfo();
+        Course course1 = new Course("Essential Course v1", instructorArrayv1, textbookArrayv1);
+
+        Course course2 = new Course("Essential Course v 2", instructorArrayv2, textbookArrayv2);
+
+        course1.printInfo();
+        System.out.println();
+        course2.printInfo();
 
 
     }
